@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Phone Duty - Activate Your Live Agent</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&family=Outfit:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <style>
+        :root {
+            --color-primary: #34d399; /* Emerald-400 */
+            --color-secondary: #60a5fa; /* Blue-400 */
+            --color-dark: #0f172a; /* Slate-900 Background */
+            --color-card: #1e293b; /* Slate-800 Card background */
+        }
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--color-dark);
+            color: #f1f5f9; /* Slate-100 */
+        }
+        h1, h2, h3 {
+            font-family: 'Outfit', sans-serif;
+        }
+        .text-gradient-hero {
+            background: linear-gradient(90deg, var(--color-primary) 0%, var(--color-secondary) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .btn-gradient {
+            background: linear-gradient(90deg, var(--color-primary) 0%, var(--color-secondary) 100%);
+            color: var(--color-dark);
+            font-weight: 800;
+            transition: opacity 0.2s, transform 0.2s;
+            box-shadow: 0 4px 20px rgba(52, 211, 153, 0.4);
+        }
+        .btn-gradient:hover {
+            opacity: 0.95;
+            transform: translateY(-1px);
+            box-shadow: 0 6px 25px rgba(52, 211, 153, 0.6);
+        }
+        .form-input {
+            width: 100%;
+            padding: 1rem 1.25rem;
+            border-radius: 0.75rem;
+            border: 1px solid #475569; /* Slate 600 */
+            background-color: #0f172a; /* Darker input background */
+            color: #f1f5f9;
+            font-size: 1rem;
+            transition: border-color 0.2s, box-shadow 0.2s;
+        }
+        .form-input:focus {
+            outline: none;
+            border-color: var(--color-primary);
+            box-shadow: 0 0 0 3px rgba(52, 211, 153, 0.5); 
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header (Minimalist for Conversion Focus) -->
+    <header class="py-4 border-b border-gray-700/50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-16">
+                <a href="#" class="text-3xl font-extrabold text-white flex items-center">
+                    <i data-lucide="bot" class="w-7 h-7 mr-2 text-emerald-400"></i>
+                    AI Phone Duty
+                </a>
+                <span class="text-sm font-semibold text-emerald-400 bg-emerald-900/30 px-3 py-1 rounded-full border border-emerald-600">
+                    48-HOUR FREE TRIAL
+                </span>
+            </div>
+        </div>
+    </header>
+
+    <!-- 1. Hero Section (Validation and Immediate CTA) -->
+    <section id="hero" class="pt-16 pb-24 md:pt-24 md:pb-32 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex flex-col lg:flex-row items-center lg:space-x-12">
+            
+            <!-- Left Side: Value Proposition based on Phone Call -->
+            <div class="lg:w-7/12 mb-12 lg:mb-0 text-center lg:text-left">
+                
+                <!-- Headline Acknowledging the Demo -->
+                <h1 class="text-4xl md:text-5xl lg:text-6xl font-extrabold leading-snug mb-6">
+                    <span class="text-gradient-hero">That Conversation Was AI.</span> Ready to deploy the Agent you just spoke to?
+                </h1>
+                
+                <p class="text-xl md:text-2xl text-gray-400 mb-8 max-w-2xl mx-auto lg:mx-0">
+                    <!-- Revised text focusing on call flow and engagement -->
+                    The AI agent you just experienced is ready to instantly manage **all your inbound call flow and initial client engagement** 24/7. Whether you're a solo operation or a growing enterprise, eliminate lost leads, reduce staff overload, and ensure every customer gets instant, accurate service.
+                </p>
+
+                <!-- Key Benefits List (Fast & Immediate) -->
+                <div class="space-y-3 max-w-xl mx-auto lg:mx-0 text-left">
+                    <div class="flex items-center text-lg font-medium">
+                        <i data-lucide="check-circle" class="w-6 h-6 text-emerald-400 mr-3 flex-shrink-0"></i> 
+                        <span class="text-white">Instantly Qualify and Route Every Lead.</span>
+                    </div>
+                    <div class="flex items-center text-lg font-medium">
+                        <i data-lucide="check-circle" class="w-6 h-6 text-emerald-400 mr-3 flex-shrink-0"></i>
+                        <span class="text-white">No Missed Calls, Ever (24/7 Service).</span>
+                    </div>
+                    <div class="flex items-center text-lg font-medium">
+                        <i data-lucide="check-circle" class="w-6 h-6 text-emerald-400 mr-3 flex-shrink-0"></i>
+                        <span class="text-white">Full Call Transcripts & Data Sent to Your CRM.</span>
+                    </div>
+                    <div class="flex items-center text-lg font-medium">
+                        <i data-lucide="check-circle" class="w-6 h-6 text-emerald-400 mr-3 flex-shrink-0"></i>
+                        <span class="text-white">**Seamless Live Call Transfer to a Human.**</span>
+                    </div>
+                    <div class="flex items-center text-lg font-medium">
+                        <i data-lucide="check-circle" class="w-6 h-6 text-emerald-400 mr-3 flex-shrink-0"></i>
+                        <span class="text-white">**Instant Appointment Sync with Your Calendar.**</span>
+                    </div>
+                </div>
+
+                <div class="mt-10">
+                    <a href="#trial-form-anchor" class="px-8 py-4 rounded-full btn-gradient text-xl shadow-lg">
+                        Activate Your FREE 48-Hour Trial Agent Now
+                    </a>
+                    <p class="mt-4 text-sm text-gray-500 font-medium">
+                        No credit card required. Cancel anytime.
+                    </p>
+                </div>
+            </div>
+
+            <!-- Right Side: Free Trial Form (The only thing to do) -->
+            <div id="trial-form-anchor" class="lg:w-5/12 w-full right-panel bg-gray-800/50 border border-emerald-700/50 p-6 sm:p-8 rounded-2xl shadow-2xl">
+                <h2 class="text-3xl font-bold text-white mb-4 text-center">Claim Your Agent in 3 Steps</h2>
+                <p class="text-gray-400 mb-6 text-center text-sm">Fill out the form to instantly start the 48-hour setup process.</p>
+
+                <form onsubmit="showSuccessMessage(); return false;" class="space-y-4">
+                    <div>
+                        <input type="text" id="name" name="name" required class="form-input" placeholder="Your Full Name *">
+                    </div>
+                    <div>
+                        <input type="text" id="business_name" name="business_name" required class="form-input" placeholder="Business Name *">
+                    </div>
+                    <div>
+                        <input type="email" id="email" name="email" required class="form-input" placeholder="Work Email * (For Setup Credentials)">
+                    </div>
+                    <div>
+                        <input type="tel" id="phone" name="phone" required class="form-input" placeholder="Best Contact Number *">
+                    </div>
+
+                    <div class="flex items-start">
+                        <input type="checkbox" id="terms" name="terms" required class="w-5 h-5 text-emerald-600 bg-gray-700 border-gray-600 rounded focus:ring-emerald-500 mt-1">
+                        <label for="terms" class="ml-3 text-sm text-gray-400">
+                            Yes, I want to start my risk-free 48-hour trial now.
+                        </label>
+                    </div>
+
+                    <button type="submit" class="w-full btn-gradient p-4 rounded-xl text-xl flex items-center justify-center space-x-2 transition-transform duration-300">
+                        <i data-lucide="cpu" class="w-6 h-6"></i>
+                        <span>Start Setup: $0 for 48 Hours</span>
+                    </button>
+                    
+                    <p id="success-message" class="text-center p-3 rounded-lg bg-emerald-900/50 text-emerald-300 font-bold hidden">
+                        Success! We've begun deploying your agent. Check your email for next steps!
+                    </p>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- 2. Credibility / How It Works (Simplified) -->
+    <section id="process" class="py-20 md:py-28 bg-color-card border-t border-b border-gray-700/50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="text-4xl md:text-5xl font-extrabold text-center mb-16">
+                The <span class="text-gradient-hero">3-Step Process</span> to Full Automation
+            </h2>
+
+            <div class="grid md:grid-cols-3 gap-10">
+                
+                <!-- Step 1: Trial & Training -->
+                <div class="text-center p-6 bg-gray-900/50 rounded-xl shadow-xl border border-gray-700/50">
+                    <span class="text-5xl font-bold text-gradient-hero mb-3 block">1.</span>
+                    <i data-lucide="cloud-cog" class="w-10 h-10 mx-auto text-emerald-400 mb-4"></i>
+                    <h3 class="text-2xl font-bold mb-2 text-white">Trial & Training (48 Hours)</h3>
+                    <p class="text-gray-400">You provide your FAQs, business context, and desired routing logic. We instantly clone the demo agent and train it on your data.</p>
+                </div>
+
+                <!-- Step 2: Deployment -->
+                <div class="text-center p-6 bg-gray-900/50 rounded-xl shadow-xl border border-gray-700/50">
+                    <span class="text-5xl font-bold text-gradient-hero mb-3 block">2.</span>
+                    <i data-lucide="phone-call" class="w-10 h-10 mx-auto text-emerald-400 mb-4"></i>
+                    <h3 class="text-2xl font-bold mb-2 text-white">Simple Deployment</h3>
+                    <p class="text-gray-400">In 48 hours, you swap the demo number for your dedicated agent number (or forward your existing line). Go live instantly.</p>
+                </div>
+
+                <!-- Step 3: Optimization -->
+                <div class="text-center p-6 bg-gray-900/50 rounded-xl shadow-xl border border-gray-700/50">
+                    <span class="text-5xl font-bold text-gradient-hero mb-3 block">3.</span>
+                    <i data-lucide="activity" class="w-10 h-10 mx-auto text-emerald-400 mb-4"></i>
+                    <h3 class="text-2xl font-bold mb-2 text-white">Daily Optimization</h3>
+                    <p class="text-gray-400">Access the Agent Dashboard to review transcripts, leads, and performance. Our AI constantly learns to improve accuracy.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 3. Final Call to Action -->
+    <section class="py-20 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+        <h2 class="text-4xl font-extrabold mb-4">
+            Don't Wait. Your Customers Are Calling Right Now.
+        </h2>
+        <p class="text-xl text-gray-400 mb-8">
+            The agent you just spoke to can be working for you in under 48 hours. Activate your free trial today and calculate the time and money you'll save.
+        </p>
+        <a href="#trial-form-anchor" class="px-10 py-4 rounded-full btn-gradient text-xl shadow-lg">
+            Start My 48-Hour Free Trial
+        </a>
+    </section>
+
+    <!-- Footer -->
+    <footer class="py-8 border-t border-gray-700/50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <p class="text-sm text-gray-500">
+                &copy; 2025 AI Phone Duty. Automated Customer Service Solutions.
+            </p>
+        </div>
+    </footer>
+
+    <script>
+        // Form Submission Logic
+        function showSuccessMessage() {
+            const form = event.target;
+            const message = document.getElementById('success-message');
+            
+            // Simple validation check before hiding form
+            if (form.checkValidity()) {
+                form.style.display = 'none';
+                message.classList.remove('hidden');
+
+                // In a real app, you would send data here.
+                console.log("Form submitted. Trial setup initiated.");
+            } else {
+                // Browser handles required field warnings.
+                console.error("Form validation failed.");
+            }
+        }
+
+        // Mobile Menu Toggler (Keeping it minimal, but good practice)
+        document.addEventListener('DOMContentLoaded', () => {
+            // Initializes Lucide icons on the page
+            lucide.createIcons();
+        });
+    </script>
+</body>
+</html>
