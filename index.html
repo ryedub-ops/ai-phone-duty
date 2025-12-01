@@ -109,13 +109,10 @@
             <div class="video-container shadow-2xl ring-4 ring-indigo-500/50">
                 <video controls poster="https://placehold.co/1200x675/1e293b/a5b4fc?text=Video+Loading+Placeholder" aria-label="AI Phone Duty Demo Video">
                     <!-- 
-                        TEMPORARY FIX: Using a public URL so the video plays in the preview environment.
-                        
-                        ***IMPORTANT***: Before deploying to Vercel, change the source back to 
-                        your local file path to ensure your custom video is used:
-                        <source src="demo.mp4" type="video/mp4">
+                        ***FIXED***: Switched back to the relative path 'demo.mp4' 
+                        since the user confirmed the file is now hosted on GitHub.
                     -->
-                    <source src="https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerJoyrides.mp4" type="video/mp4">
+                    <source src="demo.mp4" type="video/mp4">
                     Your browser does not support the video tag.
                 </video>
             </div>
