@@ -12,7 +12,7 @@
             font-family: 'Inter', sans-serif;
             transition: background-color 0.3s, color 0.3s;
         }
-        /* Custom video styling for responsiveness */
+        /* Custom video styling for responsiveness (16:9 aspect ratio) */
         .video-container {
             position: relative;
             padding-bottom: 56.25%; /* 16:9 aspect ratio */
@@ -20,13 +20,14 @@
             overflow: hidden;
             border-radius: 12px;
         }
-        .video-container video {
+        /* Style for the embedded YouTube iframe */
+        .video-container iframe {
             position: absolute;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
-            object-fit: cover;
+            border: none; /* Remove iframe border */
         }
     </style>
 </head>
@@ -94,7 +95,7 @@
         </div>
     </header>
 
-    <!-- Video Demo Section -->
+    <!-- Video Demo Section (Updated to use YouTube Embed) -->
     <section id="demo" class="py-12 sm:py-20 bg-gray-100 dark:bg-gray-900">
         <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
             <h2 class="text-base text-indigo-600 dark:text-indigo-400 font-semibold tracking-wide uppercase">Live Demonstration</h2>
@@ -105,19 +106,18 @@
                 Watch a real-world scenario where our AI instantly engages a cold lead, qualifies them, and schedules a showing—all without human intervention.
             </p>
 
-            <!-- Responsive Video Player -->
+            <!-- Responsive YouTube Embed -->
             <div class="video-container shadow-2xl ring-4 ring-indigo-500/50">
-                <video controls poster="https://placehold.co/1200x675/1e293b/a5b4fc?text=Video+Loading+Placeholder" aria-label="AI Phone Duty Demo Video">
-                    <!-- 
-                        ***FIXED***: Switched back to the relative path 'demo.mp4' 
-                        since the user confirmed the file is now hosted on GitHub.
-                    -->
-                    <source src="demo.mp4" type="video/mp4">
-                    Your browser does not support the video tag.
-                </video>
+                <iframe
+                    src="https://www.youtube.com/embed/kTcyGD52-yM" 
+                    frameborder="0"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    allowfullscreen
+                    title="AI Phone Duty Demo Video"
+                ></iframe>
             </div>
             
-            <!-- NEW CTA under video -->
+            <!-- CTA under video -->
             <div class="mt-8">
                 <a href="#contact" class="px-10 py-4 border border-transparent text-base font-medium rounded-full text-white bg-indigo-600 hover:bg-indigo-700 transition duration-300 shadow-xl transform hover:scale-105 text-lg font-bold">
                     Sign Up and Start Your Free Trial →
