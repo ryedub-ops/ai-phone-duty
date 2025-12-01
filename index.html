@@ -1,313 +1,336 @@
 <!DOCTYPE html>
-<html lang="en" class="scroll-smooth">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AI Phone Duty - 48-Hour Free Trial</title>
+    <title>AI Phone Duty - Conversational AI for Real Estate Agents</title>
+    <!-- Load Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@500;700;800&display=swap" rel="stylesheet">
-    <script src="https://unpkg.com/lucide@latest"></script>
+    <!-- Use Inter Font -->
     <style>
-        :root {
-            --primary: #2563eb; /* Royal Blue */
-            --primary-dark: #1e40af;
-            --text-main: #1e293b;
-            --text-muted: #64748b;
-            --bg-light: #f8fafc;
-        }
         body {
             font-family: 'Inter', sans-serif;
-            background-color: #ffffff;
-            color: var(--text-main);
+            transition: background-color 0.3s, color 0.3s;
         }
-        h1, h2, h3, h4 {
-            font-family: 'Plus Jakarta Sans', sans-serif;
+        /* Custom video styling for responsiveness */
+        .video-container {
+            position: relative;
+            padding-bottom: 56.25%; /* 16:9 aspect ratio */
+            height: 0;
+            overflow: hidden;
+            border-radius: 12px;
         }
-        .blob {
+        .video-container video {
             position: absolute;
-            filter: blur(80px);
-            z-index: -1;
-            opacity: 0.4;
-        }
-        .btn-primary {
-            background-color: var(--primary);
-            color: white;
-            transition: all 0.2s;
-            box-shadow: 0 4px 14px 0 rgba(37, 99, 235, 0.39);
-        }
-        .btn-primary:hover {
-            background-color: var(--primary-dark);
-            transform: translateY(-1px);
-            box-shadow: 0 6px 20px rgba(37, 99, 235, 0.23);
-        }
-        .form-card {
-            background: white;
-            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.08);
-            border: 1px solid #e2e8f0;
-        }
-        .input-field {
-            background-color: #f8fafc;
-            border: 1px solid #e2e8f0;
-            transition: all 0.2s;
-        }
-        .input-field:focus {
-            background-color: white;
-            border-color: var(--primary);
-            outline: none;
-            box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
         }
     </style>
 </head>
-<body class="overflow-x-hidden">
+<body class="bg-gray-50 text-gray-800 dark:bg-gray-900 dark:text-gray-100 min-h-screen">
 
-    <!-- Decorative Background Blob -->
-    <div class="blob bg-blue-200 w-96 h-96 rounded-full top-0 left-0 mix-blend-multiply"></div>
-    <div class="blob bg-indigo-200 w-96 h-96 rounded-full top-0 right-0 mix-blend-multiply animation-delay-2000"></div>
-
-    <!-- Navigation -->
-    <nav class="w-full py-6 px-6 md:px-12 flex justify-between items-center max-w-7xl mx-auto">
-        <div class="flex items-center gap-2 font-bold text-2xl text-slate-900 tracking-tight">
-            <!-- Logo -->
-            <img src="1764455714128.jpg" alt="AI Phone Duty Logo" class="h-12 w-auto rounded-lg shadow-sm">
-            <span>AI Phone Duty</span>
+    <!-- Navigation Bar -->
+    <nav class="sticky top-0 z-50 bg-white/90 dark:bg-gray-800/90 backdrop-blur-sm shadow-md">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-16">
+                <!-- Logo/Brand -->
+                <div class="flex-shrink-0">
+                    <a href="#" class="text-xl font-bold text-indigo-600 dark:text-indigo-400">AI Phone Duty</a>
+                </div>
+                <!-- Desktop Menu -->
+                <div class="hidden md:block">
+                    <div class="ml-10 flex items-baseline space-x-4">
+                        <a href="#home" class="text-gray-700 dark:text-gray-300 hover:text-indigo-600 dark:hover:text-indigo-400 px-3 py-2 rounded-md text-sm font-medium transition duration-150">Home</a>
+                        <a href="#products" class="text-gray-700 dark:text-gray-300 hover:text-indigo-600 dark:hover:text-indigo-400 px-3 py-2 rounded-md text-sm font-medium transition duration-150">Products</a>
+                        <a href="#demo" class="text-gray-700 dark:text-gray-300 hover:text-indigo-600 dark:hover:text-indigo-400 px-3 py-2 rounded-md text-sm font-medium transition duration-150">Demo</a>
+                        <a href="#success" class="text-gray-700 dark:text-gray-300 hover:text-indigo-600 dark:hover:text-indigo-400 px-3 py-2 rounded-md text-sm font-medium transition duration-150">Success Stories</a>
+                        <a href="#contact" class="bg-indigo-600 text-white px-4 py-2 rounded-full text-sm font-medium hover:bg-indigo-700 transition duration-150 shadow-lg">Start Free Trial</a>
+                    </div>
+                </div>
+                <!-- Mobile Menu Button -->
+                <div class="md:hidden">
+                    <button id="mobile-menu-button" class="inline-flex items-center justify-center p-2 rounded-md text-gray-700 dark:text-gray-300 hover:text-indigo-600 dark:hover:text-indigo-400 focus:outline-none">
+                        <!-- Heroicon Menu -->
+                        <svg class="h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7" />
+                        </svg>
+                    </button>
+                </div>
+            </div>
         </div>
-        <div class="hidden md:flex items-center gap-6">
-            <span class="text-sm font-medium text-slate-600">Have questions? (555) 123-4567</span>
-            <a href="#trialForm" class="text-sm font-bold text-blue-600 bg-blue-50 px-4 py-2 rounded-full hover:bg-blue-100 transition">
-                Start Free Trial
-            </a>
+        <!-- Mobile Menu (Hidden by default) -->
+        <div class="md:hidden hidden" id="mobile-menu">
+            <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
+                <a href="#home" class="block text-gray-700 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-700 px-3 py-2 rounded-md text-base font-medium transition duration-150">Home</a>
+                <a href="#products" class="block text-gray-700 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-700 px-3 py-2 rounded-md text-base font-medium transition duration-150">Products</a>
+                <a href="#demo" class="block text-gray-700 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-700 px-3 py-2 rounded-md text-base font-medium transition duration-150">Demo</a>
+                <a href="#success" class="block text-gray-700 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-700 px-3 py-2 rounded-md text-base font-medium transition duration-150">Success Stories</a>
+                <a href="#contact" class="block bg-indigo-600 text-white text-center mt-2 px-4 py-2 rounded-lg text-base font-medium hover:bg-indigo-700 transition duration-150 shadow-lg">Start Free Trial</a>
+            </div>
         </div>
     </nav>
 
     <!-- Hero Section -->
-    <main class="max-w-7xl mx-auto px-6 md:px-12 py-12 lg:py-20">
-        <div class="grid lg:grid-cols-2 gap-16 items-center">
-            
-            <!-- Left Column: Copy -->
-            <div>
-                <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-50 text-blue-700 text-xs font-bold uppercase tracking-wide mb-6 border border-blue-100">
-                    <span class="relative flex h-2 w-2">
-                      <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-blue-400 opacity-75"></span>
-                      <span class="relative inline-flex rounded-full h-2 w-2 bg-blue-500"></span>
-                    </span>
-                    Live Demo Active
-                </div>
-                
-                <h1 class="text-5xl lg:text-6xl font-extrabold text-slate-900 leading-[1.1] mb-6">
-                    The Agent you just spoke to is ready to <span class="text-blue-600">work for you.</span>
-                </h1>
-                
-                <p class="text-xl text-slate-600 mb-8 leading-relaxed">
-                    Deploy that same 24/7 AI receptionist for your business. Eliminate missed calls, qualify leads instantly, and sync appointments directly to your calendar.
-                </p>
-
-                <div class="space-y-4 mb-10">
-                    <div class="flex items-start gap-3">
-                        <div class="bg-green-100 p-1 rounded-full mt-1"><i data-lucide="check" class="w-4 h-4 text-green-700"></i></div>
-                        <div>
-                            <strong class="block text-slate-900">Zero Missed Calls</strong>
-                            <p class="text-sm text-slate-500">24/7 coverage for nights, weekends, and holidays.</p>
-                        </div>
-                    </div>
-                    <div class="flex items-start gap-3">
-                        <div class="bg-green-100 p-1 rounded-full mt-1"><i data-lucide="check" class="w-4 h-4 text-green-700"></i></div>
-                        <div>
-                            <strong class="block text-slate-900">Smart Integration</strong>
-                            <p class="text-sm text-slate-500">Syncs with Google Calendar, Outlook, and your CRM.</p>
-                        </div>
-                    </div>
-                    <div class="flex items-start gap-3">
-                        <div class="bg-green-100 p-1 rounded-full mt-1"><i data-lucide="check" class="w-4 h-4 text-green-700"></i></div>
-                        <div>
-                            <strong class="block text-slate-900">Risk-Free Trial</strong>
-                            <p class="text-sm text-slate-500">Full functionality for 48 hours. No credit card required.</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Right Column: Form -->
-            <div class="relative">
-                <!-- Form Card -->
-                <div class="form-card rounded-2xl p-8 relative z-10">
-                    <div class="text-center mb-8">
-                        <h3 class="text-2xl font-bold text-slate-900">Activate Your Agent</h3>
-                        <p class="text-slate-500 mt-2">Fill out the details below to start your 48-hour trial setup.</p>
-                    </div>
-
-                    <form id="trialForm" class="space-y-5">
-                        
-                        <!-- 
-                          IMPORTANT: PASTE YOUR WEB3FORMS ACCESS KEY BELOW 
-                        -->
-                        <input type="hidden" name="access_key" value="YOUR_ACCESS_KEY_HERE">
-                        
-                        <input type="hidden" name="subject" value="New AI Phone Duty Trial Request">
-                        <input type="hidden" name="from_name" value="AI Phone Duty Site">
-
-                        <div class="grid grid-cols-1 gap-5">
-                            <div>
-                                <label class="block text-sm font-semibold text-slate-700 mb-1.5">Business Name</label>
-                                <input type="text" name="business_name" required class="input-field w-full p-3 rounded-lg" placeholder="e.g. Acme Dental">
-                            </div>
-                            
-                            <div>
-                                <label class="block text-sm font-semibold text-slate-700 mb-1.5">Work Email</label>
-                                <input type="email" name="email" required class="input-field w-full p-3 rounded-lg" placeholder="you@company.com">
-                            </div>
-
-                            <div>
-                                <label class="block text-sm font-semibold text-slate-700 mb-1.5">Phone Number</label>
-                                <input type="tel" name="phone" required class="input-field w-full p-3 rounded-lg" placeholder="(555) 000-0000">
-                            </div>
-                        </div>
-
-                        <div class="flex items-start pt-2">
-                            <input type="checkbox" id="terms" required class="mt-1 w-4 h-4 text-blue-600 rounded border-gray-300 focus:ring-blue-500">
-                            <label for="terms" class="ml-3 text-sm text-slate-600">
-                                I agree to the <a href="#" class="text-blue-600 hover:underline">terms of service</a> and privacy policy.
-                            </label>
-                        </div>
-
-                        <button type="submit" id="submitButton" class="btn-primary w-full py-4 rounded-xl font-bold text-lg flex items-center justify-center gap-2">
-                            Start 48-Hour Free Trial
-                            <i data-lucide="arrow-right" class="w-5 h-5"></i>
-                        </button>
-
-                        <!-- Status Messages -->
-                        <div id="statusArea" class="hidden p-4 rounded-lg text-sm text-center font-medium"></div>
-                    </form>
-                </div>
-                
-                <!-- Decorative element behind form -->
-                <div class="absolute -bottom-6 -right-6 w-full h-full bg-slate-200 rounded-2xl -z-10"></div>
+    <header id="home" class="relative overflow-hidden pt-16 pb-12 sm:pt-24 sm:pb-16 lg:pt-32 lg:pb-24">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <h1 class="text-4xl sm:text-6xl lg:text-7xl font-extrabold tracking-tight text-gray-900 dark:text-white">
+                <span class="block">Never Miss a Lead Again.</span>
+                <span class="block text-indigo-600 dark:text-indigo-400 mt-2">AI Phone Duty for Real Estate.</span>
+            </h1>
+            <p class="mt-6 max-w-3xl mx-auto text-lg sm:text-xl text-gray-500 dark:text-gray-400">
+                Instantly convert missed calls and after-hours inquiries into qualified appointments using our 24/7 conversational AI platform.
+            </p>
+            <div class="mt-10 flex flex-col sm:flex-row justify-center space-y-4 sm:space-y-0 sm:space-x-6">
+                <a href="#products" class="w-full sm:w-auto px-8 py-3 border border-transparent text-base font-medium rounded-full text-white bg-indigo-600 hover:bg-indigo-700 transition duration-300 shadow-xl transform hover:scale-105">
+                    See Our AI Solutions
+                </a>
+                <a href="#demo" class="w-full sm:w-auto px-8 py-3 border-2 border-indigo-600 text-base font-medium rounded-full text-indigo-600 dark:text-indigo-400 bg-white dark:bg-gray-900 hover:bg-indigo-50 dark:hover:bg-gray-800 transition duration-300 shadow-lg transform hover:scale-105">
+                    Watch Live Demo
+                </a>
             </div>
         </div>
-    </main>
+    </header>
 
-    <!-- NEW SECTION: Video Demo -->
-    <section class="bg-white py-16">
-        <div class="max-w-5xl mx-auto px-6 text-center">
-            <h2 class="text-3xl md:text-4xl font-extrabold text-slate-900 mb-4">See It In Action</h2>
-            <p class="text-slate-600 mb-6 max-w-2xl mx-auto">Watch how our AI Agent handles complex conversations, books appointments, and sounds completely natural.</p>
-            
-            <div class="relative w-full max-w-4xl mx-auto rounded-2xl overflow-hidden shadow-2xl border border-slate-200 bg-slate-900 mb-4" style="padding-bottom: 56.25%; height: 0;">
-                <video controls autoplay loop muted class="w-full h-full absolute top-0 left-0 object-cover">
-                    <!-- Recommended: MP4 with H.264/AAC -->
-                    <source src="demo.mp4" type="video/mp4"> 
-                    <!-- You could add other sources here, e.g., for WebM: <source src="demo.webm" type="video/webm"> -->
-                    
-                    Your browser does not support the video tag. Please view the demo on a modern browser.
+    <!-- Video Demo Section -->
+    <section id="demo" class="py-12 sm:py-20 bg-gray-100 dark:bg-gray-900">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <h2 class="text-base text-indigo-600 dark:text-indigo-400 font-semibold tracking-wide uppercase">Live Demonstration</h2>
+            <p class="mt-2 text-3xl font-extrabold tracking-tight sm:text-4xl">
+                How Our AI Handles Missed Opportunities
+            </p>
+            <p class="mt-4 text-lg text-gray-600 dark:text-gray-400 max-w-3xl mx-auto mb-10">
+                Watch a real-world scenario where our AI instantly engages a cold lead, qualifies them, and schedules a showing—all without human intervention.
+            </p>
+
+            <!-- Responsive Video Player -->
+            <div class="video-container shadow-2xl ring-4 ring-indigo-500/50">
+                <video controls poster="https://placehold.co/1200x675/1e293b/a5b4fc?text=Demo+Video+Loading" aria-label="AI Phone Duty Demo Video">
+                    <!-- 
+                        IMPORTANT: The video file 'demo.mp4' must be committed to your 
+                        GitHub repository in the same folder as this index.html file 
+                        for Vercel to host it correctly.
+                    -->
+                    <source src="demo.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
                 </video>
             </div>
             
-            <!-- Troubleshooting link -->
-            <a href="demo.mp4" target="_blank" class="text-sm font-medium text-blue-600 hover:underline flex items-center justify-center gap-1">
-                <i data-lucide="play-circle" class="w-4 h-4"></i> Test Video Link Directly (Click me!)
-            </a>
-            <p class="text-xs text-slate-500 mt-2">
-                If the file loads on a separate page but does not play, it means the file is found, but the browser does not support the video's internal codec.<br>
-                **Action:** Please re-encode the `demo.mp4` file using **H.264 video codec** and **AAC audio codec** and upload the new file.
-            </p>
-
+            <!-- NEW CTA under video -->
+            <div class="mt-8">
+                <a href="#contact" class="px-10 py-4 border border-transparent text-base font-medium rounded-full text-white bg-indigo-600 hover:bg-indigo-700 transition duration-300 shadow-xl transform hover:scale-105 text-lg font-bold">
+                    Sign Up and Start Your Free Trial →
+                </a>
+            </div>
         </div>
     </section>
+    <!-- End Video Demo Section -->
 
-    <!-- Features / FAQ Grid -->
-    <section class="bg-slate-50 py-20 border-t border-slate-200">
-        <div class="max-w-5xl mx-auto px-6">
-            <h2 class="text-3xl font-bold text-center text-slate-900 mb-12">Common Questions</h2>
-            
-            <div class="grid md:grid-cols-2 gap-8">
-                <div class="bg-white p-6 rounded-xl border border-slate-200 shadow-sm">
-                    <h4 class="font-bold text-lg text-slate-900 mb-2 flex items-center gap-2">
-                        <i data-lucide="mic" class="w-5 h-5 text-blue-600"></i> Does it sound robotic?
-                    </h4>
-                    <p class="text-slate-600">Not at all. You just spoke to it! We use advanced voice synthesis to ensure natural, human-like pausing and intonation.</p>
+    <!-- Products Section -->
+    <section id="products" class="py-16 sm:py-24 bg-white dark:bg-gray-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center">
+                <h2 class="text-base text-indigo-600 dark:text-indigo-400 font-semibold tracking-wide uppercase">Our Solutions</h2>
+                <p class="mt-2 text-3xl font-extrabold tracking-tight sm:text-4xl">
+                    The Two AI Products That Power Your Success
+                </p>
+            </div>
+
+            <!-- Products Grid (Now just 2 cards) -->
+            <div class="mt-16 grid grid-cols-1 gap-12 md:grid-cols-2">
+                
+                <!-- Product 1: Missed Call SMS Reply AI -->
+                <div class="bg-gray-50 dark:bg-gray-700 p-8 rounded-xl shadow-2xl ring-1 ring-indigo-200 dark:ring-indigo-700 transform hover:scale-[1.03] transition duration-300">
+                    <div class="flex items-center justify-center h-16 w-16 rounded-full bg-indigo-100 dark:bg-indigo-900 text-indigo-600 dark:text-indigo-300">
+                        <!-- Icon: SMS / Chat Bubble -->
+                        <svg class="h-8 w-8" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 10h.01M12 10h.01M16 10h.01M9 20l4-4h7a2 2 0 002-2V8a2 2 0 00-2-2H8a2 2 0 00-2 2v2M9 20h.01M12 20h.01M16 20h.01" /></svg>
+                    </div>
+                    <h3 class="mt-6 text-2xl font-bold text-gray-900 dark:text-white">Conversational SMS Reply</h3>
+                    <p class="mt-4 text-gray-600 dark:text-gray-300">
+                        **Instant Lead Capture.** When you miss a call, our AI immediately sends a friendly, natural-sounding text message. It continues the conversation, qualifies the lead, and captures essential contact info until a showing is booked.
+                    </p>
+                    <ul class="mt-4 space-y-2 text-gray-600 dark:text-gray-400 list-disc list-inside">
+                        <li>24/7 engagement with missed calls</li>
+                        <li>Natural language processing (NLP) for realistic conversations</li>
+                        <li>Immediate qualification of buyer/seller intent</li>
+                    </ul>
                 </div>
-                <div class="bg-white p-6 rounded-xl border border-slate-200 shadow-sm">
-                    <h4 class="font-bold text-lg text-slate-900 mb-2 flex items-center gap-2">
-                        <i data-lucide="calendar" class="w-5 h-5 text-blue-600"></i> How does booking work?
-                    </h4>
-                    <p class="text-slate-600">We integrate directly with your Google, Outlook, or Calendly. The agent sees your real-time availability and books slots instantly.</p>
-                </div>
-                <div class="bg-white p-6 rounded-xl border border-slate-200 shadow-sm">
-                    <h4 class="font-bold text-lg text-slate-900 mb-2 flex items-center gap-2">
-                        <i data-lucide="users" class="w-5 h-5 text-blue-600"></i> Can I transfer calls?
-                    </h4>
-                    <p class="text-slate-600">Yes. You can set rules (e.g., "Transfer emergency calls to my cell") and the AI will execute a live transfer immediately.</p>
-                </div>
-                <div class="bg-white p-6 rounded-xl border border-slate-200 shadow-sm">
-                    <h4 class="font-bold text-lg text-slate-900 mb-2 flex items-center gap-2">
-                        <i data-lucide="clock" class="w-5 h-5 text-blue-600"></i> How fast is setup?
-                    </h4>
-                    <p class="text-slate-600">Once you submit the form above, we typically have your trial agent configured and ready for testing within 48 hours.</p>
+
+                <!-- Product 2: AI Voice Assistant -->
+                <div class="bg-gray-50 dark:bg-gray-700 p-8 rounded-xl shadow-2xl ring-1 ring-indigo-200 dark:ring-indigo-700 transform hover:scale-[1.03] transition duration-300">
+                    <div class="flex items-center justify-center h-16 w-16 rounded-full bg-indigo-100 dark:bg-indigo-900 text-indigo-600 dark:text-indigo-300">
+                        <!-- Icon: Microphone / Voice -->
+                        <svg class="h-8 w-8" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11a7 7 0 01-7 7v0a7 7 0 01-7-7zM12 4v0a7 7 0 017 7v0a7 7 0 01-7 7z" /><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 19v3m0-8V4" /></svg>
+                    </div>
+                    <h3 class="mt-6 text-2xl font-bold text-gray-900 dark:text-white">AI Voice Scheduling & Q&A</h3>
+                    <p class="mt-4 text-gray-600 dark:text-gray-300">
+                        **Automated Agent.** Our sophisticated voice assistant seamlessly handles inbound calls. It can answer property-specific questions, qualify callers, book showings directly into your calendar, and generate detailed lead reports.
+                    </p>
+                    <ul class="mt-4 space-y-2 text-gray-600 dark:text-gray-400 list-disc list-inside">
+                        <li>Books showings and appointments in real-time</li>
+                        <li>Answers FAQs about listings and the buying process</li>
+                        <li>Generates qualified leads based on call intent</li>
+                    </ul>
                 </div>
             </div>
         </div>
     </section>
 
-    <footer class="py-8 text-center text-slate-500 text-sm border-t border-slate-200 bg-white">
-        &copy; 2025 AI Phone Duty. All rights reserved.
+    <!-- Success Stories Callout (Refined from Portfolio) -->
+    <section id="success" class="py-16 sm:py-24 bg-gray-50 dark:bg-gray-900">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <h2 class="text-3xl font-extrabold tracking-tight sm:text-4xl">
+                Don't Just Take Our Word For It.
+            </h2>
+            <p class="mt-4 text-lg text-gray-500 dark:text-gray-400 max-w-3xl mx-auto">
+                Real results from top-performing agents who doubled their showing appointments using AI Phone Duty.
+            </p>
+            <!-- Mock Testimonial Card -->
+            <div class="mt-12 max-w-xl mx-auto bg-white dark:bg-gray-800 p-8 rounded-xl shadow-2xl border-t-4 border-indigo-600">
+                <p class="text-xl italic text-gray-700 dark:text-gray-200">
+                    "Since implementing AI Phone Duty, my response time went from hours to seconds. The AI booked 15 showings for me last month while I was asleep. This is non-negotiable tech for modern agents."
+                </p>
+                <div class="mt-6 flex items-center justify-center">
+                    <div class="flex-shrink-0">
+                        <img class="h-10 w-10 rounded-full" src="https://placehold.co/40x40/6366f1/ffffff?text=RA" alt="Agent Avatar">
+                    </div>
+                    <div class="ml-3 text-left">
+                        <p class="text-sm font-medium text-gray-900 dark:text-white">Robert Anderson</p>
+                        <p class="text-sm text-indigo-600 dark:text-indigo-400">Top-Producing Real Estate Agent, TX</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact/Sign-Up Section (Updated) -->
+    <section id="contact" class="py-16 sm:py-24 bg-white dark:bg-gray-800">
+        <div class="max-w-xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center">
+                <h2 class="text-3xl font-extrabold tracking-tight sm:text-4xl">
+                    Sign Up: Start Your Free 7-Day Trial
+                </h2>
+                <p class="mt-4 text-lg text-gray-500 dark:text-gray-400">
+                    Enter your details below to activate your free trial and instantly boost your lead conversion.
+                </p>
+            </div>
+            <!-- Sign-Up Form -->
+            <form class="mt-12 space-y-6">
+                <div>
+                    <label for="name" class="block text-sm font-medium">Full Name</label>
+                    <input type="text" id="name" name="name" placeholder="John Doe" required
+                           class="mt-1 block w-full border-gray-300 dark:border-gray-600 rounded-lg shadow-sm focus:ring-indigo-500 focus:border-indigo-500 dark:bg-gray-700 dark:text-white p-3">
+                </div>
+                <div>
+                    <label for="phone" class="block text-sm font-medium">Phone Number</label>
+                    <input type="tel" id="phone" name="phone" placeholder="(555) 555-5555" required
+                           class="mt-1 block w-full border-gray-300 dark:border-gray-600 rounded-lg shadow-sm focus:ring-indigo-500 focus:border-indigo-500 dark:bg-gray-700 dark:text-white p-3">
+                </div>
+                <div>
+                    <label for="email" class="block text-sm font-medium">Work Email Address</label>
+                    <input type="email" id="email" name="email" placeholder="agent@realtyfirm.com" required
+                           class="mt-1 block w-full border-gray-300 dark:border-gray-600 rounded-lg shadow-sm focus:ring-indigo-500 focus:border-indigo-500 dark:bg-gray-700 dark:text-white p-3">
+                </div>
+                <div>
+                    <label for="start_date" class="block text-sm font-medium">When are you looking to get started?</label>
+                    <select id="start_date" name="start_date" required
+                           class="mt-1 block w-full border-gray-300 dark:border-gray-600 rounded-lg shadow-sm focus:ring-indigo-500 focus:border-indigo-500 dark:bg-gray-700 dark:text-white p-3 appearance-none">
+                        <option value="" disabled selected>Select an option</option>
+                        <option value="immediately">Immediately (Urgent Need)</option>
+                        <option value="1-3_months">1-3 Months (Planning)</option>
+                        <option value="3+months">3+ Months (Just Researching)</option>
+                    </select>
+                </div>
+                <button type="submit"
+                        class="w-full py-3 px-4 border border-transparent rounded-full shadow-sm text-base font-medium text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 transition duration-150 transform hover:scale-[1.01]">
+                    Activate Free Trial
+                </button>
+            </form>
+            <!-- Message Box Placeholder -->
+            <div id="message-box" class="mt-6 hidden bg-green-100 dark:bg-green-900 border-l-4 border-green-500 p-4 rounded-lg" role="alert">
+                <p class="font-bold text-green-800 dark:text-green-200">Success!</p>
+                <p class="text-green-700 dark:text-green-300" id="message-text">Your trial request has been submitted. Check your email for next steps.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 dark:bg-gray-950">
+        <div class="max-w-7xl mx-auto py-8 px-4 sm:px-6 lg:px-8 text-center">
+            <p class="text-sm text-gray-400 dark:text-gray-500">
+                &copy; <span id="current-year"></span> AI Phone Duty. All rights reserved.
+            </p>
+            <div class="mt-4 flex justify-center space-x-6">
+                <a href="#" class="text-gray-400 hover:text-indigo-600 transition duration-150 text-sm">Privacy Policy</a>
+                <a href="#" class="text-gray-400 hover:text-indigo-600 transition duration-150 text-sm">Terms of Service</a>
+            </div>
+        </div>
     </footer>
 
+    <!-- JavaScript for Mobile Menu and Footer Year -->
     <script>
-        lucide.createIcons();
+        document.addEventListener('DOMContentLoaded', () => {
+            const mobileMenuButton = document.getElementById('mobile-menu-button');
+            const mobileMenu = document.getElementById('mobile-menu');
+            const contactForm = document.querySelector('#contact form');
+            const messageBox = document.getElementById('message-box');
+            const currentYearSpan = document.getElementById('current-year');
 
-        document.getElementById('trialForm').addEventListener('submit', async (e) => {
-            e.preventDefault();
-            const form = e.target;
-            const submitButton = document.getElementById('submitButton');
-            const statusArea = document.getElementById('statusArea');
+            // 1. Mobile Menu Toggle
+            mobileMenuButton.addEventListener('click', () => {
+                mobileMenu.classList.toggle('hidden');
+            });
 
-            // Check API Key
-            const accessKeyInput = form.querySelector('input[name="access_key"]');
-            if (accessKeyInput.value === "YOUR_ACCESS_KEY_HERE") {
-                // IMPORTANT: Replacing alert() with a custom message box/status update
-                statusArea.classList.remove('hidden');
-                statusArea.className = "p-4 rounded-lg text-sm text-center font-medium bg-red-50 text-red-700 border border-red-200";
-                statusArea.innerHTML = "🚫 Error: Please add your Web3Forms Access Key to the code.";
-                return;
-            }
+            // 2. Set Current Year in Footer
+            currentYearSpan.textContent = new Date().getFullYear();
 
-            // Loading State
-            const originalBtnText = submitButton.innerHTML;
-            submitButton.disabled = true;
-            submitButton.innerHTML = `<span class="animate-spin mr-2">⟳</span> Sending...`;
+            // 3. Mock Form Submission
+            contactForm.addEventListener('submit', function(e) {
+                e.preventDefault();
 
-            try {
-                const formData = new FormData(form);
-                const json = JSON.stringify(Object.fromEntries(formData));
-
-                const response = await fetch('https://api.web3forms.com/submit', {
-                    method: 'POST',
-                    headers: {
-                        'Content-Type': 'application/json',
-                        'Accept': 'application/json'
-                    },
-                    body: json
-                });
-
-                const result = await response.json();
-
-                statusArea.classList.remove('hidden');
-                if (response.status == 200) {
-                    statusArea.className = "p-4 rounded-lg text-sm text-center font-medium bg-green-50 text-green-700 border border-green-200";
-                    statusArea.innerHTML = "🎉 Success! Your trial request is received. Check your email for next steps.";
-                    submitButton.innerHTML = "Application Sent";
-                    form.reset();
-                } else {
-                    throw new Error(result.message);
+                // Simple validation check for the select field
+                const startDate = document.getElementById('start_date').value;
+                if (!startDate) {
+                    // Update message box to show error instead of using alert()
+                    document.getElementById('message-text').textContent = 'Please select when you are looking to get started.';
+                    messageBox.classList.remove('hidden', 'bg-green-100', 'border-green-500');
+                    messageBox.classList.add('bg-red-100', 'border-red-500');
+                    document.querySelector('.font-bold').textContent = 'Error';
+                    return; 
                 }
 
-            } catch (error) {
-                statusArea.className = "p-4 rounded-lg text-sm text-center font-medium bg-red-50 text-red-700 border border-red-200";
-                statusArea.innerHTML = "Something went wrong. Please try again.";
-                submitButton.disabled = false;
-                submitButton.innerHTML = originalBtnText;
-            }
+                // Clear previous state and show loading
+                messageBox.classList.add('hidden');
+                document.getElementById('message-text').textContent = 'Sending...';
+
+                // Simulate an API call delay
+                setTimeout(() => {
+                    // Success message
+                    document.getElementById('message-text').textContent = 'Thank you! Your trial request has been submitted. Check your email for next steps.';
+                    messageBox.classList.remove('hidden', 'bg-red-100', 'border-red-500');
+                    messageBox.classList.add('bg-green-100', 'border-green-500');
+                    document.querySelector('.font-bold').textContent = 'Request Sent!';
+
+                    // Reset form fields
+                    contactForm.reset();
+                }, 1500); // 1.5 seconds delay for simulation
+            });
+
+            // 4. Smooth Scrolling for Navigation Links
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    document.querySelector(this.getAttribute('href')).scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                    // Close mobile menu on click
+                    if (!mobileMenu.classList.contains('hidden')) {
+                         mobileMenu.classList.add('hidden');
+                    }
+                });
+            });
         });
     </script>
 </body>
