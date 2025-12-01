@@ -191,19 +191,27 @@
     <section class="bg-white py-16">
         <div class="max-w-5xl mx-auto px-6 text-center">
             <h2 class="text-3xl md:text-4xl font-extrabold text-slate-900 mb-4">See It In Action</h2>
-            <p class="text-slate-600 mb-10 max-w-2xl mx-auto">Watch how our AI Agent handles complex conversations, books appointments, and sounds completely natural.</p>
+            <p class="text-slate-600 mb-6 max-w-2xl mx-auto">Watch how our AI Agent handles complex conversations, books appointments, and sounds completely natural.</p>
             
-            <div class="relative w-full max-w-4xl mx-auto rounded-2xl overflow-hidden shadow-2xl border border-slate-200 bg-slate-900" style="padding-bottom: 56.25%; height: 0;">
+            <div class="relative w-full max-w-4xl mx-auto rounded-2xl overflow-hidden shadow-2xl border border-slate-200 bg-slate-900 mb-4" style="padding-bottom: 56.25%; height: 0;">
                 <!-- 
-                   VIDEO PLAYER IS NOW CONFIGURED FOR YOUR UPLOADED FILE: demo.mp4
-                   If you change the filename on GitHub, you must update the 'src' attribute below.
+                   UPDATED VIDEO PLAYER WITH TYPE DEFINED
+                   The file must be named 'demo.mp4' and must be in the project root directory.
                 -->
                 <video controls autoplay loop muted class="w-full h-full absolute top-0 left-0 object-cover">
                     <source src="demo.mp4" type="video/mp4">
+                    
                     Your browser does not support the video tag. Please view the demo on a modern browser.
                 </video>
                 <!-- END VIDEO PLAYER -->
             </div>
+            
+            <!-- Troubleshooting link - CLICK THIS LINK! -->
+            <a href="demo.mp4" target="_blank" class="text-sm font-medium text-blue-600 hover:underline flex items-center justify-center gap-1">
+                <i data-lucide="play-circle" class="w-4 h-4"></i> Test Video Link Directly
+            </a>
+            <p class="text-xs text-slate-500 mt-2">If the link above fails to load or shows a 404 error, the file was not deployed correctly. If it loads, the issue is likely a codec problem.</p>
+
         </div>
     </section>
 
