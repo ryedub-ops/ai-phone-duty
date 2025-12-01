@@ -194,23 +194,23 @@
             <p class="text-slate-600 mb-6 max-w-2xl mx-auto">Watch how our AI Agent handles complex conversations, books appointments, and sounds completely natural.</p>
             
             <div class="relative w-full max-w-4xl mx-auto rounded-2xl overflow-hidden shadow-2xl border border-slate-200 bg-slate-900 mb-4" style="padding-bottom: 56.25%; height: 0;">
-                <!-- 
-                   UPDATED VIDEO PLAYER WITH TYPE DEFINED
-                   The file must be named 'demo.mp4' and must be in the project root directory.
-                -->
                 <video controls autoplay loop muted class="w-full h-full absolute top-0 left-0 object-cover">
-                    <source src="demo.mp4" type="video/mp4">
+                    <!-- Recommended: MP4 with H.264/AAC -->
+                    <source src="demo.mp4" type="video/mp4"> 
+                    <!-- You could add other sources here, e.g., for WebM: <source src="demo.webm" type="video/webm"> -->
                     
                     Your browser does not support the video tag. Please view the demo on a modern browser.
                 </video>
-                <!-- END VIDEO PLAYER -->
             </div>
             
-            <!-- Troubleshooting link - CLICK THIS LINK! -->
+            <!-- Troubleshooting link -->
             <a href="demo.mp4" target="_blank" class="text-sm font-medium text-blue-600 hover:underline flex items-center justify-center gap-1">
-                <i data-lucide="play-circle" class="w-4 h-4"></i> Test Video Link Directly
+                <i data-lucide="play-circle" class="w-4 h-4"></i> Test Video Link Directly (Click me!)
             </a>
-            <p class="text-xs text-slate-500 mt-2">If the link above fails to load or shows a 404 error, the file was not deployed correctly. If it loads, the issue is likely a codec problem.</p>
+            <p class="text-xs text-slate-500 mt-2">
+                If the file loads on a separate page but does not play, it means the file is found, but the browser does not support the video's internal codec.<br>
+                **Action:** Please re-encode the `demo.mp4` file using **H.264 video codec** and **AAC audio codec** and upload the new file.
+            </p>
 
         </div>
     </section>
