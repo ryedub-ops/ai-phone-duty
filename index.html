@@ -3,204 +3,227 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AI Phone Duty - Activate Your Live Agent</title>
+    <title>AI Phone Duty - 48-Hour Free Trial</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&family=Outfit:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@500;700;800&display=swap" rel="stylesheet">
     <script src="https://unpkg.com/lucide@latest"></script>
     <style>
         :root {
-            --color-primary: #34d399; /* Emerald-400 */
-            --color-secondary: #60a5fa; /* Blue-400 */
-            --color-dark: #0f172a; /* Slate-900 Background */
-            --color-card: #1e293b; /* Slate-800 Card background */
+            --primary: #2563eb; /* Royal Blue */
+            --primary-dark: #1e40af;
+            --text-main: #1e293b;
+            --text-muted: #64748b;
+            --bg-light: #f8fafc;
         }
         body {
             font-family: 'Inter', sans-serif;
-            background-color: var(--color-dark);
-            color: #f1f5f9; /* Slate-100 */
+            background-color: #ffffff;
+            color: var(--text-main);
         }
-        h1, h2, h3 {
-            font-family: 'Outfit', sans-serif;
+        h1, h2, h3, h4 {
+            font-family: 'Plus Jakarta Sans', sans-serif;
         }
-        .text-gradient-hero {
-            background: linear-gradient(90deg, var(--color-primary) 0%, var(--color-secondary) 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
+        .blob {
+            position: absolute;
+            filter: blur(80px);
+            z-index: -1;
+            opacity: 0.4;
         }
-        .main-container {
-            display: grid;
-            grid-template-columns: 1fr;
-            gap: 2rem;
-            max-width: 1400px;
-            margin: 0 auto;
-            padding: 2rem;
+        .btn-primary {
+            background-color: var(--primary);
+            color: white;
+            transition: all 0.2s;
+            box-shadow: 0 4px 14px 0 rgba(37, 99, 235, 0.39);
         }
-        @media (min-width: 1024px) {
-            .main-container {
-                grid-template-columns: 1.2fr 1fr;
-                gap: 4rem;
-                padding: 4rem;
-            }
-        }
-        .left-panel {
-            padding-right: 2rem;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-        }
-        .right-panel {
-            background-color: #1a2046; 
-            border-radius: 1.5rem;
-            padding: 2.5rem;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
-            border: 1px solid rgba(52, 211, 153, 0.2);
-        }
-        .form-input {
-            width: 100%;
-            padding: 1rem 1.25rem;
-            border-radius: 0.75rem;
-            border: 1px solid #475569;
-            background-color: #0f172a;
-            color: #f1f5f9;
-            font-size: 1rem;
-            transition: border-color 0.2s, box-shadow 0.2s;
-        }
-        .form-input:focus {
-            outline: none;
-            border-color: var(--color-primary);
-            box-shadow: 0 0 0 3px rgba(52, 211, 153, 0.5); 
-        }
-        .btn-gradient {
-            background: linear-gradient(90deg, var(--color-primary) 0%, var(--color-secondary) 100%);
-            color: var(--color-dark);
-            font-weight: 800;
-            transition: opacity 0.2s, transform 0.2s;
-            box-shadow: 0 4px 20px rgba(52, 211, 153, 0.4);
-        }
-        .btn-gradient:hover {
-            opacity: 0.95;
+        .btn-primary:hover {
+            background-color: var(--primary-dark);
             transform: translateY(-1px);
-            box-shadow: 0 6px 25px rgba(52, 211, 153, 0.6);
+            box-shadow: 0 6px 20px rgba(37, 99, 235, 0.23);
         }
-        .btn-gradient:disabled {
-            opacity: 0.6;
-            cursor: not-allowed;
-            box-shadow: none;
+        .form-card {
+            background: white;
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.08);
+            border: 1px solid #e2e8f0;
+        }
+        .input-field {
+            background-color: #f8fafc;
+            border: 1px solid #e2e8f0;
+            transition: all 0.2s;
+        }
+        .input-field:focus {
+            background-color: white;
+            border-color: var(--primary);
+            outline: none;
+            box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
         }
     </style>
 </head>
-<body>
+<body class="overflow-x-hidden">
 
-    <!-- Header -->
-    <header class="absolute top-0 left-0 w-full py-6 px-6 md:px-12 flex justify-between items-center z-10">
-        <div class="text-2xl font-extrabold text-white flex items-center">
-            <i data-lucide="bot" class="w-8 h-8 mr-2 text-emerald-400"></i>
-            AI Phone Duty
-        </div>
-        <div class="hidden md:block text-sm font-semibold text-emerald-400 bg-emerald-900/30 px-4 py-2 rounded-full border border-emerald-600/50">
-            48-HOUR FREE TRIAL ACTIVE
-        </div>
-    </header>
+    <div class="blob bg-blue-200 w-96 h-96 rounded-full top-0 left-0 mix-blend-multiply"></div>
+    <div class="blob bg-indigo-200 w-96 h-96 rounded-full top-0 right-0 mix-blend-multiply animation-delay-2000"></div>
 
-    <div class="main-container min-h-screen pt-24">
-        
-        <!-- Left Panel: Value Props -->
-        <div class="left-panel">
-            <h1 class="text-4xl md:text-5xl lg:text-6xl font-extrabold leading-snug mb-6 text-white">
-                <span class="text-gradient-hero">That Conversation Was AI.</span> Ready to deploy the Agent you just spoke to?
-            </h1>
+    <nav class="w-full py-6 px-6 md:px-12 flex justify-between items-center max-w-7xl mx-auto">
+        <div class="flex items-center gap-2 font-bold text-2xl text-slate-900 tracking-tight">
+            <img src="1764455714128.jpg" alt="AI Phone Duty Logo" class="h-12 w-auto rounded-lg shadow-sm">
+            <span>AI Phone Duty</span>
+        </div>
+        <div class="hidden md:flex items-center gap-6">
+            <span class="text-sm font-medium text-slate-600">Have questions? (555) 123-4567</span>
+            <a href="#trialForm" class="text-sm font-bold text-blue-600 bg-blue-50 px-4 py-2 rounded-full hover:bg-blue-100 transition">
+                Start Free Trial
+            </a>
+        </div>
+    </nav>
+
+    <main class="max-w-7xl mx-auto px-6 md:px-12 py-12 lg:py-20">
+        <div class="grid lg:grid-cols-2 gap-16 items-center">
             
-            <p class="text-xl md:text-2xl text-gray-400 mb-8 max-w-2xl mx-auto lg:mx-0">
-                The AI agent you just experienced is ready to instantly manage **all your inbound call flow and initial client engagement** 24/7. Whether you're a solo operation or a growing enterprise, eliminate lost leads, reduce staff overload, and ensure every customer gets instant, accurate service.
-            </p>
+            <div>
+                <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-50 text-blue-700 text-xs font-bold uppercase tracking-wide mb-6 border border-blue-100">
+                    <span class="relative flex h-2 w-2">
+                      <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-blue-400 opacity-75"></span>
+                      <span class="relative inline-flex rounded-full h-2 w-2 bg-blue-500"></span>
+                    </span>
+                    Live Demo Active
+                </div>
+                
+                <h1 class="text-5xl lg:text-6xl font-extrabold text-slate-900 leading-[1.1] mb-6">
+                    The Agent you just spoke to is ready to <span class="text-blue-600">work for you.</span>
+                </h1>
+                
+                <p class="text-xl text-slate-600 mb-8 leading-relaxed">
+                    Deploy that same 24/7 AI receptionist for your business. Eliminate missed calls, qualify leads instantly, and sync appointments directly to your calendar.
+                </p>
 
-            <div class="space-y-4 mb-10">
-                <div class="flex items-center text-lg font-medium text-gray-300">
-                    <i data-lucide="check-circle" class="w-6 h-6 text-emerald-400 mr-3 flex-shrink-0"></i> 
-                    <span>Instantly Qualify and Route Every Lead.</span>
+                <div class="space-y-4 mb-10">
+                    <div class="flex items-start gap-3">
+                        <div class="bg-green-100 p-1 rounded-full mt-1"><i data-lucide="check" class="w-4 h-4 text-green-700"></i></div>
+                        <div>
+                            <strong class="block text-slate-900">Zero Missed Calls</strong>
+                            <p class="text-sm text-slate-500">24/7 coverage for nights, weekends, and holidays.</p>
+                        </div>
+                    </div>
+                    <div class="flex items-start gap-3">
+                        <div class="bg-green-100 p-1 rounded-full mt-1"><i data-lucide="check" class="w-4 h-4 text-green-700"></i></div>
+                        <div>
+                            <strong class="block text-slate-900">Smart Integration</strong>
+                            <p class="text-sm text-slate-500">Syncs with Google Calendar, Outlook, and your CRM.</p>
+                        </div>
+                    </div>
+                    <div class="flex items-start gap-3">
+                        <div class="bg-green-100 p-1 rounded-full mt-1"><i data-lucide="check" class="w-4 h-4 text-green-700"></i></div>
+                        <div>
+                            <strong class="block text-slate-900">Risk-Free Trial</strong>
+                            <p class="text-sm text-slate-500">Full functionality for 48 hours. No credit card required.</p>
+                        </div>
+                    </div>
                 </div>
-                <div class="flex items-center text-lg font-medium text-gray-300">
-                    <i data-lucide="check-circle" class="w-6 h-6 text-emerald-400 mr-3 flex-shrink-0"></i>
-                    <span>No Missed Calls, Ever (24/7 Service).</span>
+            </div>
+
+            <div class="relative">
+                <div class="form-card rounded-2xl p-8 relative z-10">
+                    <div class="text-center mb-8">
+                        <h3 class="text-2xl font-bold text-slate-900">Activate Your Agent</h3>
+                        <p class="text-slate-500 mt-2">Fill out the details below to start your 48-hour trial setup.</p>
+                    </div>
+
+                    <form id="trialForm" class="space-y-5">
+                        
+                        <input type="hidden" name="access_key" value="YOUR_ACCESS_KEY_HERE">
+                        
+                        <input type="hidden" name="subject" value="New AI Phone Duty Trial Request">
+                        <input type="hidden" name="from_name" value="AI Phone Duty Site">
+
+                        <div class="grid grid-cols-1 gap-5">
+                            <div>
+                                <label class="block text-sm font-semibold text-slate-700 mb-1.5">Business Name</label>
+                                <input type="text" name="business_name" required class="input-field w-full p-3 rounded-lg" placeholder="e.g. Acme Dental">
+                            </div>
+                            
+                            <div>
+                                <label class="block text-sm font-semibold text-slate-700 mb-1.5">Work Email</label>
+                                <input type="email" name="email" required class="input-field w-full p-3 rounded-lg" placeholder="you@company.com">
+                            </div>
+
+                            <div>
+                                <label class="block text-sm font-semibold text-slate-700 mb-1.5">Phone Number</label>
+                                <input type="tel" name="phone" required class="input-field w-full p-3 rounded-lg" placeholder="(555) 000-0000">
+                            </div>
+                        </div>
+
+                        <div class="flex items-start pt-2">
+                            <input type="checkbox" id="terms" required class="mt-1 w-4 h-4 text-blue-600 rounded border-gray-300 focus:ring-blue-500">
+                            <label for="terms" class="ml-3 text-sm text-slate-600">
+                                I agree to the <a href="#" class="text-blue-600 hover:underline">terms of service</a> and privacy policy.
+                            </label>
+                        </div>
+
+                        <button type="submit" id="submitButton" class="btn-primary w-full py-4 rounded-xl font-bold text-lg flex items-center justify-center gap-2">
+                            Start 48-Hour Free Trial
+                            <i data-lucide="arrow-right" class="w-5 h-5"></i>
+                        </button>
+
+                        <div id="statusArea" class="hidden p-4 rounded-lg text-sm text-center font-medium"></div>
+                    </form>
                 </div>
-                <div class="flex items-center text-lg font-medium text-gray-300">
-                    <i data-lucide="check-circle" class="w-6 h-6 text-emerald-400 mr-3 flex-shrink-0"></i>
-                    <span>Full Call Transcripts & Data Sent to Your CRM.</span>
+                
+                <div class="absolute -bottom-6 -right-6 w-full h-full bg-slate-200 rounded-2xl -z-10"></div>
+            </div>
+        </div>
+    </main>
+
+    <section class="bg-white py-16">
+        <div class="max-w-5xl mx-auto px-6 text-center">
+            <h2 class="text-3xl md:text-4xl font-extrabold text-slate-900 mb-4">See It In Action</h2>
+            <p class="text-slate-600 mb-10 max-w-2xl mx-auto">Watch how our AI Agent handles complex conversations, books appointments, and sounds completely natural.</p>
+            
+            <div class="relative w-full max-w-4xl mx-auto rounded-2xl overflow-hidden shadow-2xl border border-slate-200 bg-slate-900">
+                <video controls class="w-full h-auto">
+                    <source src="demo.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+            </div>
+        </div>
+    </section>
+
+    <section class="bg-slate-50 py-20 border-t border-slate-200">
+        <div class="max-w-5xl mx-auto px-6">
+            <h2 class="text-3xl font-bold text-center text-slate-900 mb-12">Common Questions</h2>
+            
+            <div class="grid md:grid-cols-2 gap-8">
+                <div class="bg-white p-6 rounded-xl border border-slate-200 shadow-sm">
+                    <h4 class="font-bold text-lg text-slate-900 mb-2 flex items-center gap-2">
+                        <i data-lucide="mic" class="w-5 h-5 text-blue-600"></i> Does it sound robotic?
+                    </h4>
+                    <p class="text-slate-600">Not at all. You just spoke to it! We use advanced voice synthesis to ensure natural, human-like pausing and intonation.</p>
                 </div>
-                <div class="flex items-center text-lg font-medium text-white">
-                    <i data-lucide="check-circle" class="w-6 h-6 text-emerald-400 mr-3 flex-shrink-0"></i>
-                    <strong>Seamless Live Call Transfer to a Human.</strong>
+                <div class="bg-white p-6 rounded-xl border border-slate-200 shadow-sm">
+                    <h4 class="font-bold text-lg text-slate-900 mb-2 flex items-center gap-2">
+                        <i data-lucide="calendar" class="w-5 h-5 text-blue-600"></i> How does booking work?
+                    </h4>
+                    <p class="text-slate-600">We integrate directly with your Google, Outlook, or Calendly. The agent sees your real-time availability and books slots instantly.</p>
                 </div>
-                <div class="flex items-center text-lg font-medium text-white">
-                    <i data-lucide="check-circle" class="w-6 h-6 text-emerald-400 mr-3 flex-shrink-0"></i>
-                    <strong>Instant Appointment Sync with Your Calendar.</strong>
+                <div class="bg-white p-6 rounded-xl border border-slate-200 shadow-sm">
+                    <h4 class="font-bold text-lg text-slate-900 mb-2 flex items-center gap-2">
+                        <i data-lucide="users" class="w-5 h-5 text-blue-600"></i> Can I transfer calls?
+                    </h4>
+                    <p class="text-slate-600">Yes. You can set rules (e.g., "Transfer emergency calls to my cell") and the AI will execute a live transfer immediately.</p>
+                </div>
+                <div class="bg-white p-6 rounded-xl border border-slate-200 shadow-sm">
+                    <h4 class="font-bold text-lg text-slate-900 mb-2 flex items-center gap-2">
+                        <i data-lucide="clock" class="w-5 h-5 text-blue-600"></i> How fast is setup?
+                    </h4>
+                    <p class="text-slate-600">Once you submit the form above, we typically have your trial agent configured and ready for testing within 48 hours.</p>
                 </div>
             </div>
         </div>
+    </section>
 
-        <!-- Right Panel: Form with Web3Forms Integration -->
-        <div class="right-panel">
-            <h2 class="text-3xl font-bold text-white mb-2">Claim Your Agent</h2>
-            <p class="text-gray-400 mb-6">Fill out the form to instantly start the 48-hour setup process.</p>
-
-            <form id="trialForm" class="space-y-5">
-                
-                <!-- 
-                  IMPORTANT: PASTE YOUR WEB3FORMS ACCESS KEY BELOW 
-                  Get it for free at https://web3forms.com/
-                -->
-                <input type="hidden" name="access_key" value="3729e881-f205-4462-9adc-03c49f1458ec">
-                
-                <!-- Hidden Settings for the Form -->
-                <input type="hidden" name="subject" value="New AI Phone Duty Trial Request">
-                <input type="hidden" name="from_name" value="AI Phone Duty Site">
-
-                <div>
-                    <label for="business_name" class="block text-gray-300 text-sm font-medium mb-2">Business Name</label>
-                    <input type="text" id="business_name" name="business_name" required class="form-input" placeholder="Enter your business name">
-                </div>
-                <div>
-                    <label for="email" class="block text-gray-300 text-sm font-medium mb-2">Work Email</label>
-                    <input type="email" id="email" name="email" required class="form-input" placeholder="For setup credentials">
-                </div>
-                <div>
-                    <label for="phone" class="block text-gray-300 text-sm font-medium mb-2">Best Contact Number</label>
-                    <input type="tel" id="phone" name="phone" required class="form-input" placeholder="(123) 456-7890">
-                </div>
-
-                <div class="flex items-start pt-2">
-                    <input type="checkbox" id="terms" name="terms" required class="w-5 h-5 text-emerald-600 bg-gray-700 border-gray-600 rounded focus:ring-emerald-500 mt-1">
-                    <label for="terms" class="ml-3 text-sm text-gray-400">
-                        I want to start my risk-free 48-hour trial.
-                    </label>
-                </div>
-
-                <button type="submit" id="submitButton" class="w-full btn-gradient p-4 rounded-xl text-xl flex items-center justify-center space-x-2 transition-transform duration-300 mt-4">
-                    <i data-lucide="cpu" class="w-6 h-6"></i>
-                    <span>Start Setup: $0 for 48 Hours</span>
-                </button>
-
-                <!-- Status Area -->
-                <div id="statusArea" class="mt-6 p-4 rounded-xl border hidden transition-all duration-300 bg-gray-800/50">
-                    <p id="statusMessage" class="font-medium text-lg mb-1 text-white"></p>
-                </div>
-                
-                <div class="text-center text-xs text-gray-500 mt-6">
-                    <i data-lucide="lock" class="w-3 h-3 inline mr-1"></i> Secure SSL Connection
-                </div>
-            </form>
-        </div>
-    </div>
-
-    <!-- Footer -->
-    <footer class="py-8 border-t border-gray-700/50">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-            <p class="text-sm text-gray-500">
-                &copy; 2025 AI Phone Duty. Automated Customer Service Solutions.
-            </p>
-        </div>
+    <footer class="py-8 text-center text-slate-500 text-sm border-t border-slate-200 bg-white">
+        &copy; 2025 AI Phone Duty. All rights reserved.
     </footer>
 
     <script>
@@ -211,23 +234,22 @@
             const form = e.target;
             const submitButton = document.getElementById('submitButton');
             const statusArea = document.getElementById('statusArea');
-            const statusMessage = document.getElementById('statusMessage');
 
-            // Check if user replaced the API key
+            // Check API Key
             const accessKeyInput = form.querySelector('input[name="access_key"]');
             if (accessKeyInput.value === "YOUR_ACCESS_KEY_HERE") {
-                alert("Setup Error: You must add your Web3Forms Access Key to the code before deploying. Please check the instructions.");
+                alert("Please add your Web3Forms Access Key to the code.");
                 return;
             }
 
+            // Loading State
+            const originalBtnText = submitButton.innerHTML;
             submitButton.disabled = true;
-            submitButton.querySelector('span').textContent = 'Sending...';
-            
-            // Use standard JSON submission to Web3Forms
+            submitButton.innerHTML = `<span class="animate-spin mr-2">⟳</span> Sending...`;
+
             try {
                 const formData = new FormData(form);
-                const object = Object.fromEntries(formData);
-                const json = JSON.stringify(object);
+                const json = JSON.stringify(Object.fromEntries(formData));
 
                 const response = await fetch('https://api.web3forms.com/submit', {
                     method: 'POST',
@@ -240,26 +262,21 @@
 
                 const result = await response.json();
 
+                statusArea.classList.remove('hidden');
                 if (response.status == 200) {
-                    statusArea.classList.remove('hidden');
-                    statusArea.className = "mt-6 p-4 rounded-xl border transition-all duration-300 border-emerald-500 bg-emerald-900/20";
-                    statusMessage.className = "font-bold text-lg mb-2 text-emerald-400";
-                    statusMessage.textContent = "Success! Your trial request has been received. Please check your email for next steps.";
-                    
-                    submitButton.querySelector('span').textContent = 'Application Sent';
+                    statusArea.className = "p-4 rounded-lg text-sm text-center font-medium bg-green-50 text-green-700 border border-green-200";
+                    statusArea.innerHTML = "🎉 Success! Your trial request is received. Check your email for next steps.";
+                    submitButton.innerHTML = "Application Sent";
                     form.reset();
                 } else {
-                    throw new Error(result.message || "Submission failed");
+                    throw new Error(result.message);
                 }
 
             } catch (error) {
-                console.log(error);
-                statusArea.classList.remove('hidden');
-                statusArea.className = "mt-6 p-4 rounded-xl border transition-all duration-300 border-red-500 bg-red-900/20";
-                statusMessage.className = "font-bold text-lg mb-2 text-red-400";
-                statusMessage.textContent = "Error: " + error.message;
+                statusArea.className = "p-4 rounded-lg text-sm text-center font-medium bg-red-50 text-red-700 border border-red-200";
+                statusArea.innerHTML = "Something went wrong. Please try again.";
                 submitButton.disabled = false;
-                submitButton.querySelector('span').textContent = 'Retry Setup';
+                submitButton.innerHTML = originalBtnText;
             }
         });
     </script>
